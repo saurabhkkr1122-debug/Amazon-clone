@@ -1,0 +1,45 @@
+.shop-container{
+display:flex;
+gap:20px;
+padding:30px;
+}
+
+.filters{
+width:250px;
+background:white;
+padding:20px;
+border-radius:10px;
+height:fit-content;
+}
+
+.filters h2{
+margin-bottom:20px;
+}
+
+.filters label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+.filters select{
+width:100%;
+padding:10px;
+margin-top:5px;
+}
+
+main{
+flex:1;
+}
+
+@media(max-width:768px){
+
+.shop-container{
+flex-direction:column;
+}
+
+.filters{
+width:100%;
+}
+
+}

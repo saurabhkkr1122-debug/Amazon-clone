@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ShopHub</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+ShopHub
+</div>
+
+<div class="search-box">
+<input type="text" id="searchInput"
+placeholder="Search products...">
+
+<button>
+<i class="fa fa-search"></i>
+</button>
+</div>
+
+<div class="nav-icons">
+
+<a href="wishlist.html">
+<i class="fa fa-heart"></i>
+<span id="wishlistCount">0</span>
+</a>
+
+<a href="cart.html">
+<i class="fa fa-shopping-cart"></i>
+<span id="cartCount">0</span>
+</a>
+
+</div>
+
+</header>
+
+<nav>
+
+<ul>
+
+<li><a href="#">Mobiles</a></li>
+<li><a href="#">Fashion</a></li>
+<li><a href="#">Electronics</a></li>
+<li><a href="#">Home</a></li>
+<li><a href="#">Appliances</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Big Shopping Festival</h1>
+
+<p>Up to 70% Off on Electronics</p>
+
+<a href="shop.html" class="btn">
+Shop Now
+</a>
+
+</div>
+
+</section>
+
+<section class="categories">
+
+<h2>Top Categories</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+📱
+<h3>Mobiles</h3>
+</div>
+
+<div class="category-card">
+💻
+<h3>Laptops</h3>
+</div>
+
+<div class="category-card">
+⌚
+<h3>Watches</h3>
+</div>
+
+<div class="category-card">
+🎧
+<h3>Audio</h3>
+</div>
+
+<div class="category-card">
+🏠
+<h3>Home</h3>
+</div>
+
+</div>
+
+</section>
+
+<section class="products">
+
+<h2>Featured Products</h2>
+
+<div id="productContainer"
+class="product-grid">
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+<h3>About</h3>
+<p>India's Trusted Shopping Platform</p>
+</div>
+
+<div>
+<h3>Help</h3>
+<p>Contact Us</p>
+</div>
+
+<div>
+<h3>Follow</h3>
+<p>Instagram | Facebook</p>
+</div>
+
+</div>
+
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

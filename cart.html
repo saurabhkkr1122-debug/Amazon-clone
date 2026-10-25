@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.cart-container{
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+}
+
+.cart-item{
+display:flex;
+align-items:center;
+gap:20px;
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.cart-item img{
+width:120px;
+height:120px;
+object-fit:cover;
+}
+
+.cart-info{
+flex:1;
+}
+
+.cart-price{
+font-size:22px;
+font-weight:bold;
+color:#e63946;
+}
+
+.remove-btn{
+background:red;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+}
+
+.summary{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.checkout-btn{
+background:#ff9900;
+color:white;
+border:none;
+padding:15px 25px;
+cursor:pointer;
+margin-top:15px;
+font-size:16px;
+}
+
+.empty-cart{
+text-align:center;
+padding:50px;
+font-size:24px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+ShopHub
+</div>
+
+<div class="nav-icons">
+
+<a href="wishlist.html">
+❤️
+</a>
+
+<a href="cart.html">
+🛒
+</a>
+
+</div>
+
+</header>
+
+<div class="cart-container">
+
+<h1>Your Shopping Cart</h1>
+
+<div id="cartItems"></div>
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<p id="totalItems">
+Total Items: 0
+</p>
+
+<p id="totalPrice">
+Total Price: ₹0
+</p>
+
+<button
+class="checkout-btn"
+onclick="goCheckout()">
+
+Proceed To Checkout
+
+</button>
+
+</div>
+
+</div>
+
+<script src="js/products.js"></script>
+
+<script>
+
+const cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
+
+const cartContainer =
+document.getElementById("cartItems");
+
+let total = 0;
+
+function loadCart(){
+
+cartContainer.innerHTML = "";
+
+if(cart.length === 0){
+
+cartContainer.innerHTML =
+
+'<div class="empty-cart">🛒 Cart is Empty</div>';
+
+document.getElementById(
+"totalItems"
+).innerText =
+"Total Items: 0";
+
+document.getElementById(
+"totalPrice"
+).innerText =
+"Total Price: ₹0";
+
+return;
+
+}
+
+cart.forEach((id,index)=>{
+
+const product =
+products.find(
+item => item.id === id
+);
+
+if(product){
+
+total += product.price;
+
+cartContainer.innerHTML += `
+
+<div class="cart-item">
+
+<img
+src="${product.image}"
+alt="${product.name}">
+
+<div class="cart-info">
+
+<h3>${product.name}</h3>
+
+<p>
+${product.description}
+</p>
+
+<p class="cart-price">
+₹${product.price}
+</p>
+
+</div>
+
+<button
+class="remove-btn"
+onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+}
+
+});
+
+document.getElementById(
+"totalItems"
+).innerText =
+`Total Items: ${cart.length}`;
+
+document.getElementById(
+"totalPrice"
+).innerText =
+`Total Price: ₹${total}`;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+location.reload();
+
+}
+
+function goCheckout(){
+
+window.location.href =
+"checkout.html";
+
+}
+
+loadCart();
+
+</script>
+
+</body>
+</html>
