@@ -9,33 +9,33 @@ items.forEach(product=>{
 
 container.innerHTML += `
 
-<div class="product-card">
+    <div class="product-card">
 
-<img src="${product.image}" alt="">
+    <img src="${product.image}" alt="${product.name}" onerror="this.src='images/laptop.jpg'">
 
-<h3>${product.name}</h3>
+    <h3>${product.name}</h3>
 
-<p class="price">₹${product.price}</p>
+    <p class="price">₹${product.price}</p>
 
-<p class="rating">
-⭐ ${product.rating}
-</p>
+    <p class="rating">
+    ⭐ ${product.rating}
+    </p>
 
-<div class="buttons">
+    <div class="buttons">
 
-<button class="cart-btn">
-Add Cart
-</button>
+    <button class="cart-btn">
+    Add Cart
+    </button>
 
-<button class="wishlist-btn">
-Wishlist
-</button>
+    <button class="wishlist-btn">
+    Wishlist
+    </button>
 
-</div>
+    </div>
 
-</div>
+    </div>
 
-`;
+    `;
 
 });
 

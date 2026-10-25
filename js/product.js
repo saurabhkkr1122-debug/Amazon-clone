@@ -18,18 +18,19 @@ document.getElementById(
 
 container.innerHTML = `
 
-<div class="product-page">
+    <div class="product-page">
 
-<div class="gallery">
+    <div class="gallery">
 
-<img
-id="mainImage"
-src="${product.image}"
-alt="${product.name}">
+    <img
+    id="mainImage"
+    src="${product.image}"
+    alt="${product.name}"
+    onerror="this.src='images/laptop.jpg'">
 
-</div>
+    </div>
 
-<div class="info">
+    <div class="info">
 
 <h1>${product.name}</h1>
 
